@@ -1,0 +1,32 @@
+<html>
+    <script>
+        function getNo1() {
+            return window.document.getElementById("no1");
+        }
+        function getNo2() {
+            return window.document.getElementById("no2");
+        }
+
+        function getResult() {
+            return window.document.getElementById("result");
+        }
+        function addition() {
+            getResult().value = parseInt(getNo1().value) + parseInt(getNo2().value);
+        }
+
+        function subtraction() {
+            getResult().value = parseInt(getNo1().value) - parseInt(getNo2().value);
+        }
+
+        function multiplication() {
+            getResult().value = parseInt(getNo1().value) * parseInt(getNo2().value);
+        }
+    </script>
+
+    First No. <input id="no1"><br>
+    Second No. <input id="no2"><br>
+    <input id="b1" type="button" value="+" onclick="addition()">
+    <input id="b2" type="button" value="-" onclick="subtraction()">
+    <input id="b3" type="button" value="*" onclick="multiplication()">
+    Result: <input id="result">
+</html>

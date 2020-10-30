@@ -1,0 +1,63 @@
+
+
+
+<html>
+
+    <input type="text" id="screen">
+ 	<table border="1">
+        <tr>
+            <td><input type="button" value="0" onclick="addDigit(event)"></td>
+            <td><input type="button" value="1" onclick="addDigit(event)"></td>
+            <td><input type="button" value="2" onclick="addDigit(event)"></td>
+            <td><input type="button" value="+" onclick="addOp('+')"></td>
+        </tr>
+            <td><input type="button" value="3" onclick="addDigit(event)"></td>
+            <td><input type="button" value="4" onclick="addDigit(event)"></td>
+            <td><input type="button" value="5" onclick="addDigit(event)"></td>
+            <td><input type="button" value="-" onclick="addOp('-')"></td>
+        <tr>
+            <td><input type="button" value="6" onclick="addDigit(event)"></td>
+            <td><input type="button" value="7" onclick="addDigit(event)"></td>
+            <td><input type="button" value="8" onclick="addDigit(event)"></td>
+            <td><input type="button" value="x" onclick="addOp('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="9" onclick="addDigit(event)"></td>
+            <td><input type="button" value="c" onclick="clearScreen()"></td>
+            <td><input type="button" value="=" onclick="equals()"></td>
+            <td><input type="button" value="/" onclick="addOp('/')"></td>
+        </tr>
+    </table>
+
+    <script>
+
+        // Get elements.
+        let screen = window.document.getElementById("screen");
+        let temp = null;
+        let op = null;
+
+        function addDigit(x) {
+            screen.value = screen.value + x.target.value;
+        }
+
+        function clearScreen() {
+            screen.value = "";
+            op = null;
+        }
+
+        function addOp(x) {
+            op = x;
+            temp = screen.value;
+            screen.value = "";
+
+        }
+
+        function equals() {
+            if (op === "+" && temp != null) screen.value = parseInt(temp) + parseInt(screen.value);
+            else if (op === "-" && temp != null) screen.value = parseInt(temp) - parseInt(screen.value);
+            else if (op === "*" && temp != null) screen.value = parseInt(temp) * parseInt(screen.value);
+            else if (op === "-" && temp != null) screen.value = parseInt(temp) / parseInt(screen.value);
+            else screen.value = "error";
+        }
+    </script>
+</html>
